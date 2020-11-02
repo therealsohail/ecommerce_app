@@ -1,50 +1,38 @@
 import React, { Component } from "react";
-import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+import "./style.css";
+import {
+  Search,
+  PersonOutlined,
+  ShoppingBasketOutlined,
+} from "@material-ui/icons";
 
-class ProductCard extends Component {
-  state = {};
-  render() {
-    const { id, name, price, img } = this.props;
-    return (
-      <Grid key={id} className="product-card" item xs={4}>
-        <Card className="card">
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              alt="Contemplative Reptile"
-              height="140"
-              image={img}
-              title="Contemplative Reptile"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                Lizard
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <Button size="small" color="primary">
-              Share
-            </Button>
-            <Button size="small" color="primary">
-              Learn More
-            </Button>
-          </CardActions>
-        </Card>
-      </Grid>
-    );
-  }
+function ProductCard(props) {
+  const { id, name, price, img } = props;
+  return (
+    <div className="card">
+      <div className="card-image">
+        <img
+          className="product-image responsive-image"
+          src={img}
+          alt="product"
+        />
+        <span style={{ color: "black " }} className="card-title">
+          {name}
+        </span>
+        <a className="btn-floating halfway-fab waves-effect waves-light black large">
+          <i className="material-icons">
+            <ShoppingBasketOutlined />
+          </i>
+        </a>
+      </div>
+      <div className="card-content">
+        <p>
+          <b>{price}</b>
+          <br />I am a very simple card.
+        </p>
+      </div>
+    </div>
+  );
 }
 
 export default ProductCard;

@@ -12,7 +12,7 @@ class Navbar extends Component {
   state = {};
   render() {
     return (
-      <nav>
+      <div className="nav">
         <div className="nav-left">
           <Link to="/">
             <img className="nav-logo" src={logo} alt="" />
@@ -21,7 +21,7 @@ class Navbar extends Component {
         <div className="nav-mid">
           <ul>
             <Link to="/">
-              <li>Home</li>
+              <li className="text-black">Home</li>
             </Link>
             <Link to="/">
               <li>Brands</li>
@@ -54,7 +54,7 @@ class Navbar extends Component {
             </Link>
           </ul>
         </div>
-      </nav>
+      </div>
     );
   }
 }

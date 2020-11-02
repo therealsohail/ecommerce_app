@@ -1,43 +1,40 @@
 import React, { Component } from "react";
 import product from "../../assets/image.png";
 import Grid from "@material-ui/core/Grid";
+import { Container } from "@material-ui/core";
 import ProductCard from "./product-card";
-
+import "./style.css";
+import shoes from "../data/shoes.json";
 class Product extends Component {
   state = {
-    products: [
-      {
-        id: 1,
-        name: "Iphone X",
-        Price: 24.99,
-        image: "",
-      },
-      {
-        id: 2,
-        name: "Iphone X",
-        Price: 24.99,
-        image: "",
-      },
-      {
-        id: 3,
-        name: "Iphone X",
-        Price: 24.99,
-        image: "",
-      },
-    ],
+    products: [],
   };
+  componentDidMount() {
+    console.log(shoes);
+    this.setState({
+      products: shoes,
+    });
+  }
+
   render() {
     return (
-      <Grid className="product" container spacing="3">
-        {this.state.products.map((prod) => (
-          <ProductCard
-            id={prod.id}
-            name={prod.name}
-            price={prod.price}
-            img={prod.image}
-          />
-        ))}
-      </Grid>
+      <div className="container">
+        <h4>New Arrivals</h4>
+        <br />
+        <div className="row">
+          {this.state.products.map((prod) => (
+            <div key={prod.id} class="col s12 m4">
+              <ProductCard
+                id={prod.id}
+                name={prod.name}
+                price={prod.price}
+                img={prod.images[0]}
+                description={prod.description}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     );
   }
 }

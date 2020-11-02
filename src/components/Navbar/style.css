@@ -5,10 +5,11 @@ a {
 li {
   list-style: none;
 }
-nav {
+.nav {
   display: flex;
   height: 4.5rem;
   border-bottom: 1px solid #3333;
+  background-color: white;
   align-items: center;
   justify-content: space-between;
   position: relative;
