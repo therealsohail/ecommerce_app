@@ -1,7 +1,8 @@
 .card {
-  height: 450px;
-  /* max-height: 500px; */
+  border: 1px solid #3333;
 }
-img {
-  background-size: cover;
+.card-wrap {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
 }

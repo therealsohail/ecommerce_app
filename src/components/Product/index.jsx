@@ -22,6 +22,7 @@ class Product extends Component {
         <h4>New Arrivals</h4>
         <br />
         <div className="row">
+          <div className="card-wrap">
           {this.state.products.map((prod) => (
             <div key={prod.id} class="col s12 m4">
               <ProductCard
@@ -33,6 +34,7 @@ class Product extends Component {
               />
             </div>
           ))}
+          </div>
         </div>
       </div>
     );
