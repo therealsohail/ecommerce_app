@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import "./style.css";
-import {
-  Search,
-  PersonOutlined,
-  ShoppingBasketOutlined,
-} from "@material-ui/icons";
+import { ShoppingBasketOutlined } from "@material-ui/icons";
 
-function ProductCard(props) {
+const ProductCard = (props) => {
   const { id, name, price, img } = props;
   return (
     <div className="card">
@@ -33,6 +29,6 @@ function ProductCard(props) {
       </div>
     </div>
   );
-}
+};
 
 export default ProductCard;
