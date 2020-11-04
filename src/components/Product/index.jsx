@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import product from "../../assets/image.png";
-import Grid from "@material-ui/core/Grid";
-import { Container } from "@material-ui/core";
 import ProductCard from "./product-card";
 import "./style.css";
-import shoes from "../data/shoes.json";
+import shoes from "../../data/shoes.json";
 class Product extends Component {
   state = {
     products: [],

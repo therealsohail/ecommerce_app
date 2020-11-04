@@ -15,6 +15,31 @@ const Routes = () => {
           <Product />
           <Footer />
         </Route>
+
+        <Route path="/Jackets">
+          {/* <Banner /> */}
+          <Product />
+          <Footer />
+        </Route>
+
+        <Route path="/Kids">
+          {/* <Banner /> */}
+          <Product />
+          <Footer />
+        </Route>
+
+        <Route path="/Hoodies">
+          {/* <Banner /> */}
+          <Product />
+          <Footer />
+        </Route>
+
+        <Route path="/Shoes">
+          {/* <Banner /> */}
+          <Product />
+          <Footer />
+        </Route>
+
         <Route path="/Checkout">
           <h1>checkout</h1>
         </Route>
