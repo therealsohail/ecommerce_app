@@ -1,7 +1,11 @@
-.card {
-  height: 450px;
-  /* max-height: 500px; */
+* {
+  font-family: "Oswald", sans-serif;
 }
-img {
-  background-size: cover;
+.card {
+  border: 1px solid #3333;
+}
+.card-wrap {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
 }

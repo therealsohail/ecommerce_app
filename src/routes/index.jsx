@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Banner from "../components/Banner";
-import Brand from "../components/Brand";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Product from "../components/Product";
 
@@ -12,9 +12,34 @@ const Routes = () => {
       <Switch>
         <Route exact path="/">
           <Banner />
-          {/* <Brand /> */}
           <Product />
+          <Footer />
         </Route>
+
+        <Route path="/Jackets">
+          {/* <Banner /> */}
+          <Product />
+          <Footer />
+        </Route>
+
+        <Route path="/Kids">
+          {/* <Banner /> */}
+          <Product />
+          <Footer />
+        </Route>
+
+        <Route path="/Hoodies">
+          {/* <Banner /> */}
+          <Product />
+          <Footer />
+        </Route>
+
+        <Route path="/Shoes">
+          {/* <Banner /> */}
+          <Product />
+          <Footer />
+        </Route>
+
         <Route path="/Checkout">
           <h1>checkout</h1>
         </Route>

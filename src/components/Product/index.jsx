@@ -1,28 +1,22 @@
-import React, { Component } from "react";
-import product from "../../assets/image.png";
-import Grid from "@material-ui/core/Grid";
-import { Container } from "@material-ui/core";
+import React, { useState, useEffect } from "react";
 import ProductCard from "./product-card";
 import "./style.css";
-import shoes from "../data/shoes.json";
-class Product extends Component {
-  state = {
-    products: [],
-  };
-  componentDidMount() {
-    console.log(shoes);
-    this.setState({
-      products: shoes,
-    });
-  }
+import shoes from "../../data/shoes.json";
 
-  render() {
-    return (
-      <div className="container">
-        <h4>New Arrivals</h4>
-        <br />
-        <div className="row">
-          {this.state.products.map((prod) => (
+const Product = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    setProducts(shoes);
+  });
+
+  return (
+    <div className="container">
+      <h4>New Arrivals</h4>
+      <br />
+      <div className="row">
+        <div className="card-wrap">
+          {products.map((prod) => (
             <div key={prod.id} class="col s12 m4">
               <ProductCard
                 id={prod.id}
@@ -35,8 +29,8 @@ class Product extends Component {
           ))}
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Product;
