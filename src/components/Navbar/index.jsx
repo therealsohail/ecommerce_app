@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 import logo from "../../assets/logo.png";
@@ -8,8 +8,10 @@ import {
   PersonOutlined,
   ShoppingBasketOutlined,
 } from "@material-ui/icons";
+import { ProductContext } from "../../context/ProductContext";
 
 const Navbar = () => {
+  const { productInCart } = useContext(ProductContext);
   return (
     <div className="nav">
       <div className="nav-left">
@@ -51,7 +53,7 @@ const Navbar = () => {
           </Link>
           <Link to="/">
             <li>
-              <Badge badgeContent="2" color="secondary">
+              <Badge badgeContent={productInCart} color="secondary">
                 <ShoppingBasketOutlined />
               </Badge>
             </li>

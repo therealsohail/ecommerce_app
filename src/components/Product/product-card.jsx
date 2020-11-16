@@ -1,9 +1,12 @@
-import React, { Component } from "react";
+import React, { useState, useContext } from "react";
 import "./style.css";
 import { ShoppingBasketOutlined } from "@material-ui/icons";
+import { ProductContext } from "../../context/ProductContext";
 
 const ProductCard = (props) => {
   const { id, name, price, img } = props;
+  const { addProductToCart } = useContext(ProductContext);
+
   return (
     <div className="card">
       <div className="card-image">
@@ -15,7 +18,10 @@ const ProductCard = (props) => {
         <span style={{ color: "black " }} className="card-title">
           {name}
         </span>
-        <a className="btn-floating halfway-fab waves-effect waves-light black large">
+        <a
+          onClick={() => addProductToCart({ id, name, price, img })}
+          className="btn-floating halfway-fab waves-effect waves-light black large"
+        >
           <i className="material-icons">
             <ShoppingBasketOutlined />
           </i>
