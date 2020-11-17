@@ -9,9 +9,11 @@ import {
   ShoppingBasketOutlined,
 } from "@material-ui/icons";
 import { ProductContext } from "../../context/ProductContext";
+import { useState } from "react";
 
 const Navbar = () => {
   const { productInCart } = useContext(ProductContext);
+
   return (
     <div className="nav">
       <div className="nav-left">
@@ -53,7 +55,11 @@ const Navbar = () => {
           </Link>
           <Link to="/">
             <li>
-              <Badge badgeContent={productInCart} color="secondary">
+              <Badge
+                badgeContent={productInCart}
+                color="secondary"
+                onClick={() => console.log("hiii")}
+              >
                 <ShoppingBasketOutlined />
               </Badge>
             </li>
