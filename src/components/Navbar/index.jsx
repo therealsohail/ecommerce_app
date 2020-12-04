@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./style.css";
 import logo from "../../assets/logo.png";
 import { Badge } from "@material-ui/core";
@@ -15,58 +15,126 @@ const Navbar = () => {
   const { productInCart } = useContext(ProductContext);
 
   return (
-    <div className="nav">
-      <div className="nav-left">
-        <Link to="/">
-          <img className="nav-logo" src={logo} alt="" />
-        </Link>
-      </div>
-      <div className="nav-mid">
-        <ul>
-          <Link to="/">
-            <li className="text-black">Home</li>
+    <div>
+      <nav>
+        <div className="nav-wrapper">
+          <a href="#!" className="brand-logo">
+            Logo
+          </a>
+          <Link to="#" data-target="mobile-demo" className="sidenav-trigger">
+            <i className="material-icons">menu</i>
           </Link>
-          <Link to="/Jackets">
-            <li>Jackets</li>
-          </Link>
-          <Link to="/Hoodies">
-            <li>Hoodies</li>
-          </Link>
-          <Link to="/Kids">
-            <li>Kids</li>
-          </Link>
-          <Link to="/Shoes">
-            <li>Shoes</li>
-          </Link>
-        </ul>
-      </div>
+          <ul className="right hide-on-med-and-down">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/Jackets">Jackets</Link>
+            </li>
+            <li>
+              <Link to="/Hoodies">Hoodies</Link>
+            </li>
+            <li>
+              <Link to="/Kids">Kids</Link>
+            </li>
+            <li>
+              <Link to="/Shoes">Shoes</Link>
+            </li>
+            <li>
+              <Link to="#">
+                <Search />
+              </Link>
+            </li>
+            <li>
+              <Link to="#">
+                <PersonOutlined />
+              </Link>
+            </li>
+            <li>
+              <Link to="#">
+                <Badge
+                  badgeContent={productInCart}
+                  color="secondary"
+                  onClick={() => console.log("hiii")}
+                >
+                  <ShoppingBasketOutlined />
+                </Badge>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-      <div className="nav-right">
-        <ul>
-          <Link to="/">
-            <li>
-              <Search />
-            </li>
-          </Link>
-          <Link to="/">
-            <li>
-              <PersonOutlined />
-            </li>
-          </Link>
-          <Link to="/">
-            <li>
-              <Badge
-                badgeContent={productInCart}
-                color="secondary"
-                onClick={() => console.log("hiii")}
-              >
-                <ShoppingBasketOutlined />
-              </Badge>
-            </li>
-          </Link>
-        </ul>
-      </div>
+      <ul className="sidenav" id="mobile-demo">
+        <Link to="/">
+          <li className="text-black">Home</li>
+        </Link>
+        <Link to="/Jackets">
+          <li>Jackets</li>
+        </Link>
+        <Link to="/Hoodies">
+          <li>Hoodies</li>
+        </Link>
+        <Link to="/Kids">
+          <li>Kids</li>
+        </Link>
+        <Link to="/Shoes">
+          <li>Shoes</li>
+        </Link>
+      </ul>
     </div>
+    // <div className="nav">
+    //   <div className="nav-left">
+    //     <Link to="/">
+    //       <img className="nav-logo" src={logo} alt="" />
+    //     </Link>
+    //   </div>
+    //   <div className="nav-mid">
+    //     <ul>
+    //       <Link to="/">
+    //         <li className="text-black">Home</li>
+    //       </Link>
+    //       <Link to="/Jackets">
+    //         <li>Jackets</li>
+    //       </Link>
+    //       <Link to="/Hoodies">
+    //         <li>Hoodies</li>
+    //       </Link>
+    //       <Link to="/Kids">
+    //         <li>Kids</li>
+    //       </Link>
+    //       <Link to="/Shoes">
+    //         <li>Shoes</li>
+    //       </Link>
+    //     </ul>
+    //   </div>
+
+    //   <div className="nav-right">
+    //     <ul>
+    //       <Link to="/">
+    //         <li>
+    //           <Search />
+    //         </li>
+    //       </Link>
+    //       <Link to="/">
+    //         <li>
+    //           <PersonOutlined />
+    //         </li>
+    //       </Link>
+    //       <Link to="/">
+    //         <li>
+    //           <Badge
+    //             badgeContent={productInCart}
+    //             color="secondary"
+    //             onClick={() => console.log("hiii")}
+    //           >
+    //             <ShoppingBasketOutlined />
+    //           </Badge>
+    //         </li>
+    //       </Link>
+    //     </ul>
+    //   </div>
+    // </div>
   );
 };
 
