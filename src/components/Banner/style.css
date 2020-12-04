@@ -4,17 +4,11 @@
 }
 .tone1 {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  /* needs to be changed */
   top: 27vh;
   left: 20vh;
 }
 .product-img {
   width: 20rem;
-  /* border: 1px solid black; */
-  /* Needs to be changed */
   margin-top: 90px;
   margin-left: 30px;
 }
