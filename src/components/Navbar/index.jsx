@@ -24,43 +24,58 @@ const Navbar = () => {
       <nav>
         <div className="nav-wrapper container">
           <Link to="/" className="brand-logo">
-            Logo
+            {/* Logo */}
+            <img className="nav-logo valign-wrapper" src={logo} alt="" />
           </Link>
-          <Link to="#" data-target="mobile-demo" className="sidenav-trigger">
+          <Link
+            to="#"
+            data-target="mobile-demo"
+            className="sidenav-trigger black-text text-darken-2"
+          >
             <i className="material-icons">menu</i>
           </Link>
           <ul className="right hide-on-med-and-down">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" className="black-text text-darken-2">
+                Home
+              </Link>
             </li>
             <li>
-              <Link to="/Jackets">Jackets</Link>
+              <Link to="/Jackets" className="black-text text-darken-2">
+                Jackets
+              </Link>
             </li>
             <li>
-              <Link to="/Hoodies">Hoodies</Link>
+              <Link to="/Hoodies" className="black-text text-darken-2">
+                Hoodies
+              </Link>
             </li>
             <li>
-              <Link to="/Kids">Kids</Link>
+              <Link to="/Kids" className="black-text text-darken-2">
+                Kids
+              </Link>
             </li>
             <li>
-              <Link to="/Shoes">Shoes</Link>
+              <Link to="/Shoes" className="black-text text-darken-2">
+                Shoes
+              </Link>
             </li>
             <li>
-              <Link to="#">
+              <Link to="#" className="black-text text-darken-2">
                 <Badge>
                   <Search />
                 </Badge>
               </Link>
             </li>
             <li>
-              <Link to="#">
+              <Link to="#" className="black-text text-darken-2">
                 <Badge>
                   <PersonOutlined />
                 </Badge>
               </Link>
             </li>
             <li>
-              <Link to="#">
+              <Link to="#" className="black-text text-darken-2">
                 <Badge
                   badgeContent={productInCart}
                   color="secondary"
