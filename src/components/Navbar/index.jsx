@@ -47,12 +47,16 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="#">
-                <Search />
+                <Badge>
+                  <Search />
+                </Badge>
               </Link>
             </li>
             <li>
               <Link to="#">
-                <PersonOutlined />
+                <Badge>
+                  <PersonOutlined />
+                </Badge>
               </Link>
             </li>
             <li>
