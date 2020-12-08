@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext";
 import CheckoutCard from "./checkoutCard";
 import ProductTable from "./productTable";
+import "./style.css";
 
 const Cart = () => {
   const { products } = useContext(ProductContext);
@@ -10,7 +11,7 @@ const Cart = () => {
       <h4>Your Cart ({products.length} items)</h4>
       <div className="row">
         <div className="col s12 m8">
-          <ProductTable />
+          <ProductTable products={products} />
         </div>
         <div className="col s12 m4">
           <CheckoutCard />

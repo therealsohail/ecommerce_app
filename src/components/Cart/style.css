@@ -1,0 +1,41 @@
+.checkout-btn {
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  background-color: black;
+  height: 36px;
+  color: white;
+  border: 1px solid black;
+  transition: all 0.5s;
+}
+.checkout-btn:hover {
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+}
+.product-image {
+  width: 8rem;
+}
+.product-qty {
+  margin-top: 15px;
+}
+
+.qty-btn {
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+  transition: all 0.5s;
+  padding: 2px 4px 2px 4px;
+  width: 24px;
+  font-size: 16px;
+}
+.qty-btn:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.qty-value {
+  margin-left: 8px;
+  margin-right: 8px;
+}

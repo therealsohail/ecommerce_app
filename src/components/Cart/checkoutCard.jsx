@@ -16,7 +16,7 @@ const CheckoutCard = () => {
           <div className="col m6">$1400</div>
         </div>
         <hr />
-        <div className="row">
+        <div className="row total">
           <div className="col m6" style={{ fontWeight: "lighter" }}>
             <h5>Total</h5>
           </div>
@@ -24,9 +24,10 @@ const CheckoutCard = () => {
             <h5>$1480</h5>
           </div>
         </div>
-      </div>
-      <div class="card-action">
-        <button class="btn waves-effect dark m12">Checkout</button>
+        <hr />
+        <div>
+          <input type="button" class="checkout-btn" value="Checkout" />
+        </div>
       </div>
     </div>
   );
