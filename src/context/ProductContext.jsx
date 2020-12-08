@@ -13,7 +13,9 @@ const ProductContextProvider = (props) => {
     setProducts(productArray);
   };
   return (
-    <ProductContext.Provider value={{ productInCart, addProductToCart }}>
+    <ProductContext.Provider
+      value={{ productInCart, products, addProductToCart }}
+    >
       {props.children}
     </ProductContext.Provider>
   );

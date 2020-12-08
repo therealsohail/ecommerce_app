@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Sidebar from "react-sidebar";
 import Banner from "../components/Banner";
+import Cart from "../components/Cart";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Product from "../components/Product";
@@ -9,12 +10,6 @@ import Product from "../components/Product";
 const Routes = () => {
   return (
     <BrowserRouter>
-      {/* <Sidebar
-        sidebar={<b>Sidebar content</b>}
-        open={true}
-        onSetOpen={true}
-        styles={{ sidebar: { background: "white" } }}
-      ></Sidebar> */}
       <Navbar />
       <Switch>
         <Route exact path="/">
@@ -45,6 +40,10 @@ const Routes = () => {
           {/* <Banner /> */}
           <Product />
           <Footer />
+        </Route>
+
+        <Route path="/Cart">
+          <Cart />
         </Route>
 
         <Route path="/Checkout">
