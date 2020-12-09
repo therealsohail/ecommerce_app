@@ -1,6 +1,6 @@
 import React from "react";
 
-const CheckoutCard = () => {
+const CheckoutCard = ({ subTotal, deliveryCharges }) => {
   return (
     <div class="card grey lighten-4 z-depth-0">
       <div class="card-content dark-text">
@@ -9,11 +9,11 @@ const CheckoutCard = () => {
         <br />
         <div className="row">
           <div className="col m6">Delivery Charges</div>
-          <div className="col m6">$80</div>
+          <div className="col m6">{`$${deliveryCharges}`}</div>
         </div>
         <div className="row">
           <div className="col m6">Subtotal</div>
-          <div className="col m6">$1400</div>
+          <div className="col m6">{`$${subTotal}`}</div>
         </div>
         <hr />
         <div className="row total">
@@ -21,7 +21,7 @@ const CheckoutCard = () => {
             <h5>Total</h5>
           </div>
           <div className="col m6">
-            <h5>$1480</h5>
+            <h5>{`$${subTotal + deliveryCharges}`}</h5>
           </div>
         </div>
         <hr />

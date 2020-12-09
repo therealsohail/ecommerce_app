@@ -5,16 +5,24 @@ import ProductTable from "./productTable";
 import "./style.css";
 
 const Cart = () => {
-  const { products } = useContext(ProductContext);
+  const {
+    products,
+    subTotal,
+    deliveryCharges,
+    deleteProductFromCart,
+  } = useContext(ProductContext);
   return (
     <div className="container">
       <h4>Your Cart ({products.length} items)</h4>
       <div className="row">
         <div className="col s12 m8">
-          <ProductTable products={products} />
+          <ProductTable
+            products={products}
+            deleteProductFromCart={deleteProductFromCart}
+          />
         </div>
         <div className="col s12 m4">
-          <CheckoutCard />
+          <CheckoutCard subTotal={subTotal} deliveryCharges={deliveryCharges} />
         </div>
       </div>
     </div>

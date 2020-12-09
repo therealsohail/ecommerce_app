@@ -1,4 +1,6 @@
 .checkout-btn {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1px;
   margin-top: 20px;
   display: block;
   width: 100%;
@@ -38,4 +40,13 @@
 .qty-value {
   margin-left: 8px;
   margin-right: 8px;
+}
+.delete-product-icon {
+  margin-top: 15px;
+  transition: all 0.5s;
+}
+.delete-product-icon:hover {
+  cursor: pointer;
+  font-size: 30px;
+  color: red;
 }
