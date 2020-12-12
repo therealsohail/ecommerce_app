@@ -4,7 +4,7 @@ import { ShoppingBasketOutlined } from "@material-ui/icons";
 import { ProductContext } from "../../context/ProductContext";
 
 const ProductCard = (props) => {
-  const { id, name, price, img } = props;
+  const { id, name, price, img, description } = props;
   const { addProductToCart } = useContext(ProductContext);
 
   return (
@@ -30,7 +30,7 @@ const ProductCard = (props) => {
       <div className="card-content">
         <p>
           <b>{price}</b>
-          <br />I am a very simple card.
+          <br />
         </p>
       </div>
     </div>

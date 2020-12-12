@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "./product-card";
 import "./style.css";
-import shoes from "../../data/shoes.json";
 
-const Product = () => {
+const Product = ({ productValues }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    setProducts(shoes);
+    setProducts(productValues);
   });
 
   return (
