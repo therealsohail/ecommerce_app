@@ -12,6 +12,7 @@ import shoes from "../data/shoes.json";
 import jackets from "../data/jackets.json";
 import hoodies from "../data/hoodies.json";
 import kids from "../data/kids.json";
+import StripeCheckout from "../components/Stripe/StripeCheckout";
 
 const Routes = () => {
   return (
@@ -53,7 +54,7 @@ const Routes = () => {
         </Route>
 
         <Route path="/Checkout">
-          <h1>checkout</h1>
+          <StripeCheckout />
         </Route>
         <Route path="/Login">
           <h1>login</h1>

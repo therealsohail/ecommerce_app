@@ -13,6 +13,10 @@ const Cart = () => {
     deleteProductFromCart,
   } = useContext(ProductContext);
 
+  const handleToken = (token, address) => {
+    console.log({ token, address });
+  };
+
   const showCart = () => {
     console.log(products.length);
     if (products.length === 0) {

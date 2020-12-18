@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CheckoutCard = ({ subTotal, deliveryCharges }) => {
   return (
@@ -26,7 +27,9 @@ const CheckoutCard = ({ subTotal, deliveryCharges }) => {
         </div>
         <hr />
         <div>
-          <input type="button" class="checkout-btn" value="Checkout" />
+          <Link to="/Checkout">
+            <input type="button" class="checkout-btn" value="Checkout" />
+          </Link>
         </div>
       </div>
     </div>
