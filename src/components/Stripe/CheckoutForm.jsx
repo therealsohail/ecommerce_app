@@ -1,20 +1,27 @@
 import { Card } from "@material-ui/core";
 import { useStripe, CardElement, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import Loader from "../Helpers/loader";
+
 const CheckoutForm = () => {
+  const [isPaid, setIsPaid] = useState(false);
+  const [isPayClicked, setPayClicked] = useState(false);
+
   const stripe = useStripe();
   const elements = useElements();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    toast.dark("Payment Successful");
+    setPayClicked(true);
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
     });
+
     if (!error) {
       const { id } = paymentMethod;
 
@@ -24,8 +31,10 @@ const CheckoutForm = () => {
           amount: 1099,
         });
         console.log(data);
+
         if (data.success === true) {
-          //   toast("Payment Successful");
+          setIsPaid(true);
+          toast("Payment Successful");
         }
       } catch (err) {
         console.log(err);
@@ -35,11 +44,12 @@ const CheckoutForm = () => {
 
   const iframeStyles = {
     base: {
-      color: "black",
-      fontSize: "20px",
+      color: "#454545",
+      fontFamily: "Fira Code",
+      fontSize: "16px",
       iconColor: "#fff",
       "::placeholder": {
-        color: "black",
+        color: "#5C5C5C",
       },
     },
     invalid: {
@@ -57,9 +67,38 @@ const CheckoutForm = () => {
     style: iframeStyles,
     hidePostalCode: true,
   };
+
+  const showLoader = () => {
+    if (isPaid === false && isPayClicked === true) {
+      return <Loader />;
+    }
+  };
   return (
     <div className="container">
-      <form style={{ maxWidth: 400, margin: "0 auto" }}>
+      <form className="checkout-form">
+        <div className="row">
+          <div class="input-field col s6">
+            <input id="first_name" type="text" class="validate" />
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text" class="validate" />
+            <label for="last_name">Last Name</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="email" type="text" class="validate" />
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="address" type="text" class="validate" />
+            <label for="address">Address</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="city" type="text" class="validate" />
+            <label for="city">City</label>
+          </div>
+        </div>
+
         <div className="card-element">
           <CardElement options={cardElementOpts} />
         </div>
@@ -72,7 +111,9 @@ const CheckoutForm = () => {
         >
           Pay
         </button>
-        {/* <ToastContainer /> */}
+        <br />
+        <div className="center-align">{showLoader()}</div>
+
         <ToastContainer
           position="top-right"
           autoClose={5000}
