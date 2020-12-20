@@ -6,10 +6,19 @@ import "./style.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import Loader from "../Helpers/loader";
+import { useHistory } from "react-router-dom";
 
 const CheckoutForm = () => {
   const [isPaid, setIsPaid] = useState(false);
   const [isPayClicked, setPayClicked] = useState(false);
+  const history = useHistory();
+
+  //form fields
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
 
   const stripe = useStripe();
   const elements = useElements();
@@ -29,15 +38,26 @@ const CheckoutForm = () => {
         let { data } = await axios.post("http://localhost:8000/api/pay", {
           id,
           amount: 1099,
+          details: {
+            firstName,
+            lastName,
+            email,
+            address,
+            city,
+          },
         });
         console.log(data);
 
         if (data.success === true) {
           setIsPaid(true);
-          toast("Payment Successful");
+          toast.dark("Payment Successful");
+          setTimeout(() => {
+            history.push("/");
+          }, 5000);
         }
       } catch (err) {
         console.log(err);
+        alert("There was an error processing payment");
       }
     }
   };
@@ -73,28 +93,58 @@ const CheckoutForm = () => {
       return <Loader />;
     }
   };
+
   return (
     <div className="container">
       <form className="checkout-form">
         <div className="row">
           <div class="input-field col s6">
-            <input id="first_name" type="text" class="validate" />
+            <input
+              id="first_name"
+              type="text"
+              class="validate"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
             <label for="first_name">First Name</label>
           </div>
           <div class="input-field col s6">
-            <input id="last_name" type="text" class="validate" />
+            <input
+              id="last_name"
+              type="text"
+              class="validate"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
             <label for="last_name">Last Name</label>
           </div>
           <div class="input-field col s12">
-            <input id="email" type="text" class="validate" />
+            <input
+              id="email"
+              type="text"
+              class="validate"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <label for="email">Email</label>
           </div>
           <div class="input-field col s12">
-            <input id="address" type="text" class="validate" />
+            <input
+              id="address"
+              type="text"
+              class="validate"
+              onChange={(e) => setAddress(e.target.value)}
+            />
             <label for="address">Address</label>
           </div>
           <div class="input-field col s12">
-            <input id="city" type="text" class="validate" />
+            <input
+              id="city"
+              type="text"
+              class="validate"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
             <label for="city">City</label>
           </div>
         </div>
@@ -107,7 +157,7 @@ const CheckoutForm = () => {
           className="pay-btn"
           onClick={handleSubmit}
           type="submit"
-          disabled={!stripe}
+          disabled={!stripe || isPayClicked}
         >
           Pay
         </button>
