@@ -9,7 +9,7 @@ const Banner = () => {
       <div className="row">
         <div className="col s12 m6 center tone1">
           <span className="product-tag">New Collection 2020</span>
-          <h1 className="product-tagline">Product with style.</h1>
+          <h1 className="product-tagline">Products you need</h1>
           <span className="product-price">
             FROM: <b>$789</b>
           </span>

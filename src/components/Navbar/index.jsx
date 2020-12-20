@@ -26,7 +26,10 @@ const Navbar = () => {
         <div className="nav-wrapper container">
           <Link to="/" className="brand-logo">
             {/* Logo */}
-            <img className="nav-logo valign-wrapper" src={logo} alt="" />
+            {/* <img className="nav-logo valign-wrapper" src={logo} alt="" /> */}
+            <div>
+              <h4 className="nav-logo valign-wrapper">eCart</h4>
+            </div>
           </Link>
           <Link
             to="#"
