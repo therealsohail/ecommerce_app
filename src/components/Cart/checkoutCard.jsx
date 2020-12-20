@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const CheckoutCard = () => {
+const CheckoutCard = ({ subTotal, deliveryCharges }) => {
   return (
     <div class="card grey lighten-4 z-depth-0">
       <div class="card-content dark-text">
@@ -9,24 +10,27 @@ const CheckoutCard = () => {
         <br />
         <div className="row">
           <div className="col m6">Delivery Charges</div>
-          <div className="col m6">$80</div>
+          <div className="col m6">{`$${deliveryCharges}`}</div>
         </div>
         <div className="row">
           <div className="col m6">Subtotal</div>
-          <div className="col m6">$1400</div>
+          <div className="col m6">{`$${subTotal}`}</div>
         </div>
         <hr />
-        <div className="row">
+        <div className="row total">
           <div className="col m6" style={{ fontWeight: "lighter" }}>
             <h5>Total</h5>
           </div>
           <div className="col m6">
-            <h5>$1480</h5>
+            <h5>{`$${subTotal + deliveryCharges}`}</h5>
           </div>
         </div>
-      </div>
-      <div class="card-action">
-        <button class="btn waves-effect dark m12">Checkout</button>
+        <hr />
+        <div>
+          <Link to="/Checkout">
+            <input type="button" class="checkout-btn" value="Checkout" />
+          </Link>
+        </div>
       </div>
     </div>
   );
