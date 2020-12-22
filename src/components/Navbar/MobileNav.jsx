@@ -25,7 +25,7 @@ const MobileNav = ({ productInCart }) => {
       <li>
         <Link to="/Shoes">Shoes</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="#">
           <Search />
         </Link>
@@ -34,14 +34,10 @@ const MobileNav = ({ productInCart }) => {
         <Link to="#">
           <PersonOutlined />
         </Link>
-      </li>
+      </li> */}
       <li>
         <Link to="/Cart">
-          <Badge
-            badgeContent={productInCart}
-            color="secondary"
-            onClick={() => console.log("hiii")}
-          >
+          <Badge badgeContent={productInCart} color="secondary">
             <ShoppingBasketOutlined />
           </Badge>
         </Link>

@@ -13,14 +13,15 @@ const Cart = () => {
     deleteProductFromCart,
   } = useContext(ProductContext);
 
+  let history = useHistory();
   const handleToken = (token, address) => {
     console.log({ token, address });
   };
 
   const showCart = () => {
-    console.log(products.length);
     if (products.length === 0) {
       alert("Cart is empty! come back with products in basket.");
+      history.push("/");
     } else {
       return (
         <div className="container">

@@ -1,17 +1,19 @@
 import { Card } from "@material-ui/core";
 import { useStripe, CardElement, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./style.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import Loader from "../Helpers/loader";
 import { useHistory } from "react-router-dom";
+import { ProductContext } from "../../context/ProductContext";
 
 const CheckoutForm = () => {
   const [isPaid, setIsPaid] = useState(false);
   const [isPayClicked, setPayClicked] = useState(false);
   const history = useHistory();
+  const { subTotal, deliveryCharges } = useContext(ProductContext);
 
   //form fields
   const [firstName, setFirstName] = useState("");
@@ -37,7 +39,7 @@ const CheckoutForm = () => {
       try {
         let { data } = await axios.post("http://localhost:8000/api/pay", {
           id,
-          amount: 1099,
+          amount: (subTotal + deliveryCharges) * 100,
           details: {
             firstName,
             lastName,
@@ -93,7 +95,7 @@ const CheckoutForm = () => {
       return <Loader />;
     }
   };
-
+  console.log(subTotal, deliveryCharges);
   return (
     <div className="container">
       <form className="checkout-form">

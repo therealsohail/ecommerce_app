@@ -64,7 +64,7 @@ const Navbar = () => {
                 Shoes
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="#" className="black-text text-darken-2">
                 <Badge>
                   <Search />
@@ -77,14 +77,10 @@ const Navbar = () => {
                   <PersonOutlined />
                 </Badge>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/Cart" className="black-text text-darken-2 ">
-                <Badge
-                  badgeContent={productInCart}
-                  color="secondary"
-                  onClick={() => console.log("hiii")}
-                >
+                <Badge badgeContent={productInCart} color="secondary">
                   <ShoppingBasketOutlined />
                 </Badge>
               </Link>
