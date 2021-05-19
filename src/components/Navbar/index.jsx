@@ -64,20 +64,7 @@ const Navbar = () => {
                 Shoes
               </Link>
             </li>
-            {/* <li>
-              <Link to="#" className="black-text text-darken-2">
-                <Badge>
-                  <Search />
-                </Badge>
-              </Link>
-            </li>
-            <li>
-              <Link to="#" className="black-text text-darken-2">
-                <Badge>
-                  <PersonOutlined />
-                </Badge>
-              </Link>
-            </li> */}
+
             <li>
               <Link to="/Cart" className="black-text text-darken-2 ">
                 <Badge badgeContent={productInCart} color="secondary">

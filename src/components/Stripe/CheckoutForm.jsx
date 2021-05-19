@@ -37,17 +37,20 @@ const CheckoutForm = () => {
       const { id } = paymentMethod;
 
       try {
-        let { data } = await axios.post("http://localhost:8000/api/pay", {
-          id,
-          amount: (subTotal + deliveryCharges) * 100,
-          details: {
-            firstName,
-            lastName,
-            email,
-            address,
-            city,
-          },
-        });
+        let { data } = await axios.post(
+          "https://ecommerce-api04.herokuapp.com/api/pay",
+          {
+            id,
+            amount: (subTotal + deliveryCharges) * 100,
+            details: {
+              firstName,
+              lastName,
+              email,
+              address,
+              city,
+            },
+          }
+        );
         console.log(data);
 
         if (data.success === true) {
